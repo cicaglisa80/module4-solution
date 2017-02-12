@@ -1,13 +1,6 @@
 (function () {
 
-angular.module('Data', []).controller('CategoriesListController', CategoriesListController);
-
-
-CategoriesListController.$inject = ['categories'];
-function CategoriesListController(categories) {
-  var mainList = this;
-  mainList.categories = categories;
-};
+angular.module('Data', []);
 
 //Data.$inject = ['MenuDataService'];
 function Data() {

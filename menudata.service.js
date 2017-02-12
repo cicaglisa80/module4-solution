@@ -19,6 +19,7 @@ function MenuDataService($http, ApiBasePath) {
       url: (ApiBasePath + "/categories.json")
     }).then(function (result){
       categories = result;
+      return categories;
     });
 
     return response;
@@ -33,7 +34,7 @@ function MenuDataService($http, ApiBasePath) {
        }
      })
      .then(function (result) {
-       categories = result;
+       items = result;
       //  for (var i = 0; i < result.data.menu_items.length; i++) {
       //    if (~result.data.menu_items[i].description.indexOf(categoryShortName))
       //    {
@@ -42,7 +43,7 @@ function MenuDataService($http, ApiBasePath) {
       //  }
        //
       //  result.data.menu_items = foundItems;
-       return categories;
+       return items;
      });
 
      return response;
