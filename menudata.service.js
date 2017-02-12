@@ -16,9 +16,10 @@ function MenuDataService($http, ApiBasePath) {
   service.getAllCategories = function () {
     var response = $http({
       method: "GET",
-      url: (ApiBasePath + "/categories.json")
+      url: (ApiBasePath + "categories.json")
     }).then(function (result){
-      categories = result;
+      categories = result.data;
+      console.log(categories);
       return categories;
     });
 
@@ -28,13 +29,13 @@ function MenuDataService($http, ApiBasePath) {
   service.getItemsForCategory = function (categoryShortName) {
      var response = $http({
        method: "GET",
-       url: (ApiBasePath + "/menu_items.json"),
+       url: (ApiBasePath + "menu_items.json"),
        params: {
          category: categoryShortName
        }
      })
      .then(function (result) {
-       items = result;
+       items = result.data.menu_items;
       //  for (var i = 0; i < result.data.menu_items.length; i++) {
       //    if (~result.data.menu_items[i].description.indexOf(categoryShortName))
       //    {
