@@ -5,7 +5,7 @@ angular.module('MenuApp').config(RoutesConfig);
 RoutesConfig.$inject = ['$stateProvider', '$urlRouterProvider'];
 function RoutesConfig($stateProvider, $urlRouterProvider) {
 
-  $urlRouterProvider.otherwise('/');
+  //$urlRouterProvider.otherwise('/');
 
   // Set up UI states
   $stateProvider
@@ -17,6 +17,7 @@ function RoutesConfig($stateProvider, $urlRouterProvider) {
     .state('categories', {
       url: '/categories',
       templateUrl: 'template/categorieslist.template.html',
+      //controller: 'CategoriesListController as mainList',
       resolve: {
         categories: ['MenuDataService', function (MenuDataService) {
           return MenuDataService.getAllCategories();
