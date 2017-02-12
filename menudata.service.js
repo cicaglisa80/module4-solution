@@ -19,6 +19,8 @@ function MenuDataService($http, ApiBasePath) {
     }).then(function (result){
       categories = result;
     });
+
+    return response;
   };
 
   service.getItemsForCategory = function (categoryShortName) {
@@ -30,16 +32,16 @@ function MenuDataService($http, ApiBasePath) {
        }
      })
      .then(function (result) {
-       items = [];
-       for (var i = 0; i < result.data.menu_items.length; i++) {
-         if (~result.data.menu_items[i].description.indexOf(categoryShortName))
-         {
-           foundItems.push(result.data.menu_items[i]);
-         }
-       }
-
-       result.data.menu_items = foundItems;
-       return result;
+       categories = result;
+      //  for (var i = 0; i < result.data.menu_items.length; i++) {
+      //    if (~result.data.menu_items[i].description.indexOf(categoryShortName))
+      //    {
+      //      foundItems.push(result.data.menu_items[i]);
+      //    }
+      //  }
+       //
+      //  result.data.menu_items = foundItems;
+       return categories;
      });
 
      return response;
